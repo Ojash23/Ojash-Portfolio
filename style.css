@@ -13,7 +13,7 @@
   --accent: #1a1a1a;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', sans-serif;
-  --max-w: 1100px;
+  --max-w: 1280px;
   --section-pad: 120px;
 }
 
@@ -565,5 +565,103 @@ a.contact-value:hover {
 
   .scroll-indicator {
     display: none;
+  }
+}
+
+/* ===== LARGE SCREEN OPTIMISATION (1400px+) ===== */
+@media (min-width: 1400px) {
+  :root {
+    --section-pad: 140px;
+  }
+
+  .nav {
+    padding: 36px 80px;
+  }
+
+  .nav.scrolled {
+    padding: 26px 80px;
+  }
+
+  .hero {
+    padding: 160px 80px 100px;
+    gap: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 96px;
+  }
+
+  .hero-sub {
+    font-size: 28px;
+  }
+
+  .hero-aside {
+    font-size: 18px;
+  }
+
+  .page-header {
+    padding: 200px 80px 100px;
+  }
+
+  .page-header h1 {
+    font-size: 88px;
+  }
+
+  .page-sub {
+    font-size: 26px;
+  }
+
+  .section {
+    padding: var(--section-pad) 80px;
+  }
+
+  .section-inner p {
+    font-size: 19px;
+    max-width: 780px;
+  }
+
+  .section-inner h2 {
+    font-size: 62px;
+  }
+
+  .work-grid {
+    grid-template-columns: 240px 1fr;
+    gap: 80px;
+  }
+
+  .work-tag {
+    font-size: 12px;
+  }
+
+  .work-year {
+    font-size: 14px;
+  }
+
+  .cs-card {
+    gap: 80px;
+  }
+
+  .footer {
+    padding: 80px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+}
+
+/* ===== EXTRA LARGE (1800px+) ===== */
+@media (min-width: 1800px) {
+  :root {
+    --max-w: 1500px;
+  }
+
+  .hero-content h1 {
+    font-size: 110px;
+  }
+
+  .section-inner p {
+    font-size: 20px;
+    max-width: 860px;
   }
 }
