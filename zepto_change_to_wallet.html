@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change to Zepto Cash — COD Friction | Ojash Prasad</title>
+<meta name="description" content="A product case study on eliminating cash-change friction at the Zepto doorstep by converting COD change into instant Zepto Cash wallet credits.">
+<meta property="og:title" content="Change to Zepto Cash — Strategic Product Brief">
+<meta property="og:description" content="Turning the messiest 30 seconds in quick commerce into a wallet-building habit. A 2-page strategic product concept by Ojash Prasad.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zepto-purple: #5E17EB;
+    --zepto-purple-dark: #26215C;
+    --zepto-purple-mid: #534AB7;
+    --bg: #ffffff;
+    --bg-alt: #f9f8f6;
+    --card: #f3f2ef;
+    --border: #e8e5e0;
+    --text: #1a1a1a;
+    --muted: #6b6860;
+    --text-light: #9a9590;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 120px 60px 90px;
+    background: linear-gradient(135deg, #f9f8f6 0%, #f0eef8 55%, #ede8f7 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 65% 65% at 85% 50%, rgba(94,23,235,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 680px; }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(94,23,235,0.08);
+    border: 1px solid rgba(94,23,235,0.25);
+    color: var(--zepto-purple);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 400;
+    line-height: 1.07;
+    max-width: 660px;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--zepto-purple), #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.85;
+    max-width: 540px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+  .hero-meta-item .label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  .hero-meta-item .value {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  /* ─── DECO PILL ─── */
+  .hero-deco {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0.45;
+  }
+
+  .deco-pill {
+    background: var(--zepto-purple-dark);
+    color: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    min-width: 200px;
+    font-family: var(--sans);
+    font-size: 12px;
+  }
+
+  .deco-pill .dp-label { opacity: 0.6; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .deco-pill .dp-val { font-size: 20px; font-weight: 500; font-family: var(--serif); }
+  .deco-pill .dp-sub { font-size: 10px; opacity: 0.7; margin-top: 2px; }
+
+  /* ─── BACK LINK ─── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 28px 60px 0;
+    transition: color 0.2s;
+    font-family: var(--sans);
+  }
+  .back-link:hover { color: var(--text); }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  /* ─── SECTION LABELS ─── */
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .step-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--zepto-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: var(--sans);
+    flex-shrink: 0;
+    color: #fff;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.8vw, 46px);
+    font-weight: 400;
+    line-height: 1.12;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  p { color: var(--muted); margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); font-weight: 500; }
+  em { font-style: italic; }
+
+  /* ─── STAT GRID ─── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: left;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(94,23,235,0.3);
+    box-shadow: 0 4px 20px rgba(94,23,235,0.06);
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--zepto-purple-dark);
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.45;
+    font-family: var(--sans);
+  }
+
+  /* ─── THESIS BOX ─── */
+  .thesis-box {
+    background: var(--zepto-purple-dark);
+    border-radius: 16px;
+    padding: 40px 44px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thesis-box::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .thesis-eye {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    font-family: var(--sans);
+    margin-bottom: 16px;
+  }
+
+  .thesis-text {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 400;
+    line-height: 1.4;
+    color: white;
+    font-style: italic;
+  }
+
+  .thesis-text em {
+    color: rgba(168, 85, 247, 0.9);
+    font-style: italic;
+  }
+
+  /* ─── FLOW STEPS ─── */
+  .flow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .flow-step:last-child { border-bottom: none; }
+
+  .flow-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(94,23,235,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 44px;
+    margin-top: 4px;
+  }
+
+  .flow-body .flow-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .flow-body p { font-size: 15px; margin-bottom: 0; }
+
+  /* ─── SCENARIO TABLE ─── */
+  .scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 14px;
+  }
+
+  .scenario-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+    font-family: var(--sans);
+    font-weight: 500;
+    background: var(--zepto-purple-dark);
+  }
+
+  .scenario-table th:first-child { border-radius: 10px 0 0 0; }
+  .scenario-table th:last-child { border-radius: 0 10px 0 0; }
+
+  .scenario-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .scenario-table td:first-child {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .scenario-table tr:last-child td { border-bottom: none; }
+
+  .scenario-table tr:hover td { background: #f9f8f6; }
+
+  .scenario-table td .highlight-credit {
+    display: inline-block;
+    background: rgba(94,23,235,0.08);
+    color: var(--zepto-purple-dark);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 4px;
+    font-family: var(--sans);
+  }
+
+  /* ─── PARTIAL CASH VISUAL ─── */
+  .partial-visual {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .pv-step {
+    text-align: center;
+  }
+
+  .pv-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-family: var(--sans);
+    margin-bottom: 10px;
+  }
+
+  .pv-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--zepto-purple-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .pv-sub {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .pv-arrow {
+    text-align: center;
+    font-size: 24px;
+    color: rgba(94,23,235,0.3);
+    line-height: 1;
+  }
+
+  .pv-divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+
+  .pv-formula {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--sans);
+    padding-top: 8px;
+  }
+
+  .pv-formula strong { color: var(--zepto-purple-dark); }
+
+  /* ─── DISPUTE FLOW ─── */
+  .dispute-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .dt-row {
+    display: flex;
+    gap: 20px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .dt-row:last-child { border-bottom: none; }
+
+  .dt-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-family: var(--sans);
+  }
+
+  .dt-icon.purple { background: rgba(94,23,235,0.1); color: var(--zepto-purple); }
+  .dt-icon.green { background: rgba(26,122,74,0.1); color: #1a7a4a; }
+  .dt-icon.red { background: rgba(192,57,43,0.1); color: #c0392b; }
+  .dt-icon.gray { background: var(--card); color: var(--muted); }
+
+  .dt-body .dt-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .dt-body p { font-size: 14px; margin-bottom: 0; }
+
+  /* ─── GUARDRAIL GRID ─── */
+  .guardrail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .gr-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .gr-card:hover { border-color: rgba(94,23,235,0.3); }
+
+  .gr-val {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--zepto-purple-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .gr-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--zepto-purple);
+    font-family: var(--sans);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .gr-body { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ─── ENG TABLE ─── */
+  .eng-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 14px;
+  }
+
+  .eng-table th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+    font-family: var(--sans);
+    font-weight: 500;
+    background: var(--zepto-purple-dark);
+  }
+
+  .eng-table th:first-child { border-radius: 10px 0 0 0; }
+  .eng-table th:last-child { border-radius: 0 10px 0 0; }
+
+  .eng-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .eng-table td:first-child {
+    font-weight: 500;
+    color: var(--text);
+    font-family: var(--sans);
+  }
+
+  .eng-table tr:last-child td { border-bottom: none; }
+
+  .effort-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-family: var(--sans);
+  }
+
+  .effort-low { background: rgba(26,122,74,0.1); color: #1a7a4a; }
+  .effort-med { background: rgba(176,125,26,0.1); color: #b07d1a; }
+  .effort-high { background: rgba(192,57,43,0.1); color: #c0392b; }
+
+  /* ─── WHY NOW ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .why-card {
+    padding-left: 16px;
+    border-left: 2px solid rgba(94,23,235,0.3);
+  }
+
+  .why-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(94,23,235,0.5);
+    margin-bottom: 8px;
+  }
+
+  .why-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .why-body { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+
+  /* ─── CLOSING QUOTE ─── */
+  .closing-quote {
+    text-align: center;
+    padding: 80px 0 60px;
+    border-bottom: none;
+  }
+
+  .closing-quote blockquote {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--text);
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+
+  .closing-meta {
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+  }
+
+  .closing-meta a {
+    color: var(--zepto-purple);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(94,23,235,0.3);
+    transition: opacity 0.2s;
+  }
+
+  .closing-meta a:hover { opacity: 0.6; }
+
+  /* ─── INLINE QUOTE ─── */
+  .pull-quote {
+    border-left: 3px solid var(--zepto-purple);
+    padding: 8px 0 8px 20px;
+    margin: 24px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--zepto-purple-dark);
+    line-height: 1.5;
+  }
+
+  /* ─── REJECTED / ACCEPTED BADGES ─── */
+  .badge-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .badge {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--sans);
+  }
+  .badge-no { background: rgba(192,57,43,0.1); color: #c0392b; }
+  .badge-yes { background: rgba(26,122,74,0.1); color: #1a7a4a; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero { padding: 100px 30px 70px; min-height: auto; }
+    .hero-deco { display: none; }
+    .container { padding: 0 24px; }
+    .partial-visual { grid-template-columns: 1fr; text-align: center; }
+    .pv-arrow { transform: rotate(90deg); }
+    .guardrail-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 24px; }
+    .back-link { padding: 20px 24px 0; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 90px 20px 60px; }
+    .hero h1 { font-size: 38px; }
+    .guardrail-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 20px; }
+    section { padding: 60px 0; }
+    .back-link { padding: 16px 20px 0; }
+    .thesis-box { padding: 28px 24px; }
+    .partial-visual { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- BACK LINK -->
+  <a href="work.html" class="back-link">← Back to Work</a>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Product Case Study · Q2 2026</div>
+      <h1>Change to <span>Zepto Cash</span></h1>
+      <p>Eliminating the messiest 30 seconds in quick commerce — turning doorstep change friction into a wallet-building habit that closes the loop on every COD order.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="label">Role</span>
+          <span class="value">Product Strategy</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">Platform</span>
+          <span class="value">Zepto · Payments</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">Status</span>
+          <span class="value">Concept · PRD Ready</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">Timeline</span>
+          <span class="value">Q2 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-pill">
+        <div class="dp-label">Change credited</div>
+        <div class="dp-val">₹111</div>
+        <div class="dp-sub">to Zepto Cash · just now</div>
+      </div>
+      <div class="deco-pill" style="margin-left:24px;">
+        <div class="dp-label">DA deposit today</div>
+        <div class="dp-val">₹389</div>
+        <div class="dp-sub">auto-reconciled · order #48291</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <a href="work.html" class="back-link" style="display:none;"></a>
+
+  <div class="container">
+
+    <!-- 01 THE PROBLEM -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">01</div>
+        <span class="section-label">The Problem</span>
+      </div>
+      <h2>30–40% of Zepto orders are COD. Every one has a change problem.</h2>
+      <p>Cash on Delivery isn't going anywhere in India. But the current experience at the doorstep introduces three friction points that compound at scale:</p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number" style="color:#5E17EB;">30-40%</div>
+          <div class="stat-label">of Zepto orders in India are paid cash on delivery</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30s</div>
+          <div class="stat-label">average wait when the DA doesn't have exact change</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹0</div>
+          <div class="stat-label">digital record of cash exchanged today — disputes have no proof</div>
+        </div>
+      </div>
+
+      <p><strong>Delivery Agents carry change for every order.</strong> At quick-commerce scale, managing float is operationally complex and a personal working-capital burden absorbed by riders.</p>
+      <p><strong>Customers rarely have exact change.</strong> The resulting doorstep fumble adds friction to the last mile, creates failed delivery attempts, and leaves a poor final impression of an otherwise seamless experience.</p>
+      <p><strong>No digital record exists.</strong> When a customer later claims they paid ₹1,000 instead of ₹500, there is no proof on either side. Disputes become he-said-she-said with no resolution path.</p>
+    </section>
+
+    <!-- 02 THE THESIS -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">02</div>
+        <span class="section-label">The Thesis</span>
+      </div>
+      <h2>Cash was always the last friction in quick commerce.</h2>
+
+      <div class="thesis-box">
+        <div class="thesis-eye">The idea in one breath</div>
+        <div class="thesis-text">
+          If you pay cash and the rider can't make change, the difference lands in your Zepto Cash <em>instantly</em>. That balance pays for your next order — or reduces the cash you hand over next time. <em>Cash becomes a recurring digital deposit.</em>
+        </div>
+      </div>
+
+      <p>Since Zepto Cash already exists for every user, there's no wallet setup, no onboarding, no RBI PPI license required (it's a closed-loop instrument). The entire infrastructure exists. Only the bridge is missing.</p>
+    </section>
+
+    <!-- 03 HOW IT WORKS -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">03</div>
+        <span class="section-label">The Solution</span>
+      </div>
+      <h2>A four-step flow that makes change disappear.</h2>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">i.</div>
+          <div class="flow-body">
+            <div class="flow-title">Customer opts in at checkout</div>
+            <p>Selecting COD surfaces a toggle: "Change to Zepto Cash — receive any change instantly as wallet credit." Disclaimer shown. Feature is opt-in, never forced. Wallet already exists for every Zepto user — no setup step.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">ii.</div>
+          <div class="flow-body">
+            <div class="flow-title">DA enters cash received at doorstep</div>
+            <p>The partner app shows a wallet-flag indicator on the order card. On completion, DA enters the note denomination received (₹500). System auto-calculates change: ₹500 − ₹389 = ₹111.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iii.</div>
+          <div class="flow-body">
+            <div class="flow-title">Customer confirms in real time</div>
+            <p>Push notification fires within 5 seconds: "₹500 recorded by your rider. ₹111 will be credited to Zepto Cash — Confirm or Dispute." Customer has 30 seconds. This is the proof layer — both sides get a digital record, timestamped.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iv.</div>
+          <div class="flow-body">
+            <div class="flow-title">₹111 credited. Rider keeps ₹500. Done.</div>
+            <p>After DA double-confirmation and customer confirm, the credit fires instantly to Zepto Cash. The cash amount is immutably logged against the order ID for day-end deposit reconciliation. Rider's deposit obligation auto-calculates: ₹500 − ₹111 = ₹389.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 USER SCENARIOS -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">04</div>
+        <span class="section-label">User Scenarios</span>
+      </div>
+      <h2>Five scenarios, one consistent answer.</h2>
+
+      <table class="scenario-table">
+        <thead>
+          <tr>
+            <th style="width:28%">Scenario</th>
+            <th style="width:36%">Before</th>
+            <th style="width:36%">After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Exact change<br><small style="font-family:var(--sans);font-size:12px;color:var(--text-light);">₹389 paid for ₹389 order</small></td>
+            <td>DA marks delivered. No friction.</td>
+            <td>Same. DA marks Cash Accepted. Done.</td>
+          </tr>
+          <tr>
+            <td>Excess cash<br><small style="font-family:var(--sans);font-size:12px;color:var(--text-light);">₹500 paid for ₹389 order</small></td>
+            <td>Rider fumbles for ₹111. Customer waits. No digital record.</td>
+            <td>DA enters ₹500. Customer confirms. <span class="highlight-credit">+₹111 to Zepto Cash</span>. Rider keeps ₹500. Logged.</td>
+          </tr>
+          <tr>
+            <td>Partial cash + wallet<br><small style="font-family:var(--sans);font-size:12px;color:var(--text-light);">₹89 wallet + ₹389 order</small></td>
+            <td>Not possible. ₹89 sits unused. Customer pays full ₹389 cash.</td>
+            <td>Wallet auto-applies ₹89. DA collects ₹300. If ₹500 given, <span class="highlight-credit">+₹200 to wallet</span>. Clean number, no change needed.</td>
+          </tr>
+          <tr>
+            <td>Customer disputes amount<br><small style="font-family:var(--sans);font-size:12px;color:var(--text-light);">Claims they paid ₹1,000</small></td>
+            <td>He-said-she-said. No proof on either side. Manual ops investigation.</td>
+            <td>Customer received push within 5s of DA entry. 30s to Confirm or Dispute. Dispute = physical change, no credit, timestamped proof on both sides.</td>
+          </tr>
+          <tr>
+            <td>Customer opts out</td>
+            <td>Current default.</td>
+            <td>Physical change continues. Opt-in only — no customer is forced.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 05 PARTIAL CASH -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">05</div>
+        <span class="section-label">The Partial-Cash Innovation</span>
+      </div>
+      <h2>Wallet balance reduces cash needed. Every time.</h2>
+      <p>The most powerful sub-feature: when a customer has any Zepto Cash balance, the checkout auto-applies it against the COD amount. The customer hands over a smaller, cleaner number — and if change comes back, it loops straight into the wallet again.</p>
+
+      <div class="partial-visual">
+        <div class="pv-step">
+          <div class="pv-label">Order total</div>
+          <div class="pv-num">₹389</div>
+          <div class="pv-sub">Standard COD order</div>
+        </div>
+        <div class="pv-arrow">→</div>
+        <div class="pv-step">
+          <div class="pv-label">Wallet auto-applied</div>
+          <div class="pv-num">−₹89</div>
+          <div class="pv-sub">From Zepto Cash balance</div>
+        </div>
+        <div class="pv-arrow">→</div>
+        <div class="pv-step">
+          <div class="pv-label">Cash to DA</div>
+          <div class="pv-num">₹300</div>
+          <div class="pv-sub">A clean number. No change needed.</div>
+        </div>
+        <div class="pv-divider"></div>
+        <div class="pv-formula">
+          DA deposit obligation: <strong>cash received (₹500) − change credited (₹200) = ₹300</strong>
+        </div>
+      </div>
+
+      <p style="margin-top:24px;">This creates a self-reinforcing loop: COD change goes to wallet → wallet reduces next COD → less change needed → fewer friction moments at the door. The product experience gets better every order.</p>
+    </section>
+
+    <!-- 06 DISPUTE HANDLING -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">06</div>
+        <span class="section-label">Dispute Handling</span>
+      </div>
+      <h2>Why we rejected the obvious solution.</h2>
+      <p>The first instinct for dispute prevention is to have the DA photograph the cash handed over. We rejected it — and chose something better.</p>
+
+      <div style="margin: 28px 0;">
+        <div class="badge-row">
+          <span class="badge badge-no">Rejected</span>
+          <h3 style="margin:0;font-size:18px;">Photo of cash at doorstep</h3>
+        </div>
+        <p>Adds 5–10 seconds of friction (defeats the purpose), creates per-order storage cost, raises privacy concerns, and a photo of a note doesn't prove what was handed over. You could photograph any note.</p>
+      </div>
+
+      <div style="margin: 28px 0;">
+        <div class="badge-row">
+          <span class="badge badge-yes">Selected</span>
+          <h3 style="margin:0;font-size:18px;">Real-time customer dual-confirmation</h3>
+        </div>
+        <p>Mirrors how UPI already works. When the DA enters ₹500 in the partner app, the customer's phone gets a push within 5 seconds:</p>
+
+        <div class="pull-quote">"₹500 cash recorded by your delivery partner. Change of ₹111 will be credited to Zepto Cash. Confirm or Dispute."</div>
+      </div>
+
+      <div class="dispute-timeline">
+        <div class="dt-row">
+          <div class="dt-icon purple">→</div>
+          <div class="dt-body">
+            <div class="dt-title">Customer taps Confirm</div>
+            <p>Wallet credit fires instantly. Both sides have a timestamped digital record. Dispute-proof by design.</p>
+          </div>
+        </div>
+        <div class="dt-row">
+          <div class="dt-icon red">✕</div>
+          <div class="dt-body">
+            <div class="dt-title">Customer taps Dispute</div>
+            <p>Wallet credit does not happen. Physical change flow kicks in. DA hands change as today. No credit issued.</p>
+          </div>
+        </div>
+        <div class="dt-row">
+          <div class="dt-icon gray">—</div>
+          <div class="dt-body">
+            <div class="dt-title">No response in 30 seconds</div>
+            <p>Auto-confirm. Wallet credit fires. Customer opted into this flow at checkout — no-response is consent-by-default.</p>
+          </div>
+        </div>
+        <div class="dt-row">
+          <div class="dt-icon red">⚠</div>
+          <div class="dt-body">
+            <div class="dt-title">2+ disputes in 30 days</div>
+            <p>Customer is auto-opted out. Feature paused for them — defaults to physical change. Prevents repeat fraud claims without blocking good-faith disputes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 GUARDRAILS -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">07</div>
+        <span class="section-label">Guardrails</span>
+      </div>
+      <h2>Cash-to-digital limits that keep the system honest.</h2>
+      <p>Converting cash to digital credit needs hard boundaries. These numbers aren't arbitrary — each one is sized to the real use-case while closing obvious abuse vectors.</p>
+
+      <div class="guardrail-grid">
+        <div class="gr-card">
+          <div class="gr-val">₹500</div>
+          <div class="gr-label">Per-order cap</div>
+          <div class="gr-body">Max change credited from any single COD order. Covers 99% of real cases. Above this, physical change fallback.</div>
+        </div>
+        <div class="gr-card">
+          <div class="gr-val">₹1,000</div>
+          <div class="gr-label">Per-day cap</div>
+          <div class="gr-body">Total wallet credits per user per day. Prevents abuse via back-to-back COD orders with inflated entries.</div>
+        </div>
+        <div class="gr-card">
+          <div class="gr-val">₹2,000</div>
+          <div class="gr-label">Wallet ceiling</div>
+          <div class="gr-body">Max Zepto Cash from change credits. Forces money to flow back through Zepto — prevents the wallet becoming dormant savings.</div>
+        </div>
+        <div class="gr-card">
+          <div class="gr-val">30s</div>
+          <div class="gr-label">Dispute window</div>
+          <div class="gr-body">Customer confirms or disputes via push before credit fires. UPI-style real-time proof, zero photo overhead.</div>
+        </div>
+        <div class="gr-card">
+          <div class="gr-val">&lt;1%</div>
+          <div class="gr-label">DA error threshold</div>
+          <div class="gr-body">DA cash-entry error rate above 1% in 2 weeks auto-pauses their feature access and flags to Ops for retraining.</div>
+        </div>
+        <div class="gr-card">
+          <div class="gr-val">∞</div>
+          <div class="gr-label">Idempotency</div>
+          <div class="gr-body">Credit API keyed on order_id. Network retry, double-tap, or duplicate confirm cannot issue a double credit.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 ENGINEERING -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">08</div>
+        <span class="section-label">Engineering Scope</span>
+      </div>
+      <h2>8–10 weeks. Zero new infrastructure.</h2>
+      <p>Zepto Cash already exists. The payment pipeline already exists. This is a bridge, not a new building. Critical path wall-clock: 4–5 weeks with parallel teams. Per-transaction cost: ~₹0.05 (FCM push).</p>
+
+      <table class="eng-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Team</th>
+            <th>Effort</th>
+            <th>Complexity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Customer app — checkout toggle + partial-cash UI</td>
+            <td>Consumer App + Payments</td>
+            <td>7–9 days</td>
+            <td><span class="effort-badge effort-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>DA Partner app — cash entry, change calc, double-confirm modal, deposit summary</td>
+            <td>DA App (Android)</td>
+            <td>5–6 days</td>
+            <td><span class="effort-badge effort-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Wallet / Payments service — idempotent credit trigger, partial-cash debit</td>
+            <td>Payments Team</td>
+            <td>6–8 days</td>
+            <td><span class="effort-badge effort-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Dual-confirmation service — push, confirm/dispute API, 30s timeout</td>
+            <td>Notifications + Backend</td>
+            <td>4–5 days</td>
+            <td><span class="effort-badge effort-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Order service schema — wallet flags, immutable cash fields, new endpoint</td>
+            <td>Order Platform</td>
+            <td>4–5 days</td>
+            <td><span class="effort-badge effort-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Reconciliation service — daily DA cash vs wallet delta, auto-alerts</td>
+            <td>DA Ops + Data Eng</td>
+            <td>3–4 days</td>
+            <td><span class="effort-badge effort-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>QA + dark launch infra — feature flags, Bangalore canary (5% DAs), edge-case tests</td>
+            <td>QA + DevOps</td>
+            <td>5–6 days</td>
+            <td><span class="effort-badge effort-med">Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 09 SUCCESS METRICS -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">09</div>
+        <span class="section-label">Success Metrics</span>
+      </div>
+      <h2>What does winning look like?</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number" style="color:#5E17EB;">30%+</div>
+          <div class="stat-label">Opt-in rate on COD, Month 1</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">−15s</div>
+          <div class="stat-label">Reduction in doorstep handover time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Wallet re-use rate within 7 days of credit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">−20%</div>
+          <div class="stat-label">COD failed deliveries (change-related)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">99%+</div>
+          <div class="stat-label">DA cash reconciliation accuracy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;0.5%</div>
+          <div class="stat-label">Customer dispute rate target</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;padding:20px 24px;background:rgba(192,57,43,0.05);border:1px solid rgba(192,57,43,0.15);border-radius:12px;">
+        <strong style="color:#c0392b;font-family:var(--sans);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Kill criteria</strong>
+        <p style="margin-top:8px;font-size:14px;">If after 4 weeks of soft launch, opt-in remains below 15% or dispute rate exceeds 2%, sunset the feature. A feature that doesn't change behaviour isn't worth ongoing operational and compliance overhead. Honest call — not every PRD survives reality.</p>
+      </div>
+    </section>
+
+    <!-- 10 WHY NOW -->
+    <section>
+      <div class="section-eyebrow">
+        <div class="step-badge">10</div>
+        <span class="section-label">Strategic Rationale</span>
+      </div>
+      <h2>Why this is the right bet for Zepto right now.</h2>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">i.</div>
+          <div class="why-title">Zepto Cash is already live</div>
+          <p class="why-body">No new wallet to onboard, no RBI PPI license required. The infrastructure exists. Only the bridge from COD to wallet is missing.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">ii.</div>
+          <div class="why-title">COD is 30–40% of all orders</div>
+          <p class="why-body">At 30% opt-in on 30% COD orders — conservatively 10M+ change events per year. Each one seeds the next order's payment habit.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">iii.</div>
+          <div class="why-title">Competition hasn't shipped it</div>
+          <p class="why-body">Blinkit, Instamart, Swiggy — none have wired COD change to wallet. First mover owns the doorstep payment narrative.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">iv.</div>
+          <div class="why-title">Closed-loop wallet adoption</div>
+          <p class="why-body">Money spent from Zepto Cash bypasses external gateway costs. Every wallet order is a direct margin improvement, compounding per order.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">v.</div>
+          <div class="why-title">Habit-forming retention loop</div>
+          <p class="why-body">A wallet with money in it is a reason to order again. Each COD seeds the next order's payment — without the customer doing anything.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">vi.</div>
+          <div class="why-title">DA experience improvement</div>
+          <p class="why-body">Riders who opt-in customers reduce the float they need to carry. Fewer change transactions = fewer errors, faster deliveries, less end-of-day reconciliation stress.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-quote">
+      <blockquote>"Cash was always the last friction in quick commerce. Change to Zepto Cash makes it disappear — and turns it into the start of the next order."</blockquote>
+      <div class="closing-meta">
+        Ojash Prasad · Product Strategy · <a href="https://ojashprasad.netlify.app" target="_blank">ojashprasad.netlify.app</a>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="transitions.js"></script>
+</body>
+</html>
